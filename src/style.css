@@ -1,0 +1,267 @@
+/* Custom Properties */
+:root {
+  /* Colors */
+  --white: #fff;
+  --grey-light-1: #f5f5f5;
+  --grey-light-2: #bdbdbd;
+  --grey: #616161;
+  --blue-light: #eef2fc;
+  --blue: #7495e7;
+  --blue-dark: #406ddd;
+
+  /* Fonts */
+  --body-font: 'Poppins', sans-serif;
+}
+
+/* Basic reset */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* general HTML tags styling */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--grey);
+  font-size: 1.6rem;
+  font-family: var(--body-font);
+  background-color: var(--blue-light);
+  padding: 2rem;
+  padding-top: 10rem;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+/*********************************/
+/* Components */
+.card {
+  background-color: var(--white);
+  border-radius: 1.6rem;
+  width: 100%;
+  max-width: 70rem;
+  overflow: hidden;
+}
+
+.new-todo-form {
+  display: flex;
+  flex-direction: column;
+  padding: 3.2rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@media (min-width: 576px) {
+  .new-todo-form {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.edit-todo-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.edit-todo-form div {
+  display: flex;
+  height: 3.6rem;
+  gap: 2rem;
+}
+
+@media (min-width: 576px) {
+  .edit-todo-form {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .edit-todo-form div {
+    height: auto;
+  }
+}
+
+.input {
+  font-family: inherit;
+  font-weight: 400;
+  color: inherit;
+  border-radius: 10rem;
+  padding: 1.2rem 3.2rem;
+  font-size: 1.6rem;
+  border: 2px solid var(--grey-light-2);
+  width: 100%;
+  flex: 1;
+}
+
+.input-sm {
+  padding: 0.6rem 1.6rem;
+  font-size: 1.4rem;
+}
+
+.new-todo-form .input {
+  margin-bottom: 1rem;
+}
+@media (min-width: 576px) {
+  .new-todo-form .input {
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+}
+
+.input {
+  padding: 0.6rem 1.6rem;
+  font-size: 1.4rem;
+}
+
+.input:focus {
+  outline: none;
+}
+.input::placeholder {
+  color: var(--grey-light-2);
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: 600;
+  color: inherit;
+  border-radius: 10rem;
+  border: 0;
+  padding: 1.2rem 3.2rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.btn-sm {
+  padding: 0.6rem 1.6rem;
+  font-size: 1.4rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  color: var(--white);
+  background-image: linear-gradient(to right, var(--blue), var(--blue-dark));
+}
+
+.todos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todos-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.6rem 3.2rem;
+  transition: all 0.3s ease;
+}
+
+.todos-item:hover {
+  background-color: var(--grey-light-1);
+}
+
+.todos-item p {
+  margin-right: auto;
+}
+
+.todos-item.completed p {
+  text-decoration: line-through;
+  text-decoration-color: rgba(64, 109, 221, 0.6);
+}
+
+.todos-actions {
+  display: flex;
+  gap: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.todos-item:hover .todos-actions {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media only screen and (hover: none) {
+  .todos-actions {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.todos-actions button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
+  color: inherit;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.todos-actions button:hover {
+  opacity: 1;
+}
+
+.todos-actions button:focus {
+  outline: none;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.2rem;
+  padding: 0 3.2rem;
+  gap: 1.6rem;
+}
+
+@media (min-width: 700px) {
+  .filter {
+    flex-direction: row;
+  }
+}
+
+.filter button {
+  flex: 1;
+  background-color: transparent;
+  font-weight: inherit;
+}
+
+.filter button:hover {
+  transform: none;
+  background-color: var(--grey-light-1);
+}
+
+.filter button.active {
+  color: var(--blue-dark);
+  background-color: var(--grey-light-1);
+}
+
+/*********************************/
+/* Utils */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shadow {
+  box-shadow: 0 2rem 4rem rgba(99, 135, 227, 0.03);
+}
